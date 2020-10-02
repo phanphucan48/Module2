@@ -1,48 +1,61 @@
-<!DOCTYPE html>
-<html lang="en">
+    </html> -->
+    <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $operand1 = $_POST["operand1"];
+        $operand2 = $_POST["operand2"];
+        $operator = $_POST["operator"];
+        function calculator($operand1, $operand2, $operator)
+        {
+            if ($operand1 == "0" || $operand2 == "0") {
+                throw new Exception("Division by zero");
+            } else {
+                if ($operator == "cong") {
+                    return $operand1 . " + " . $operand2 . " = " . ($operand1 + $operand2);
+                } else if ($operator == "tru") {
+                    return $operand1 . " - " . $operand2 . " = " . ($operand1 - $operand2);
+                } else if ($operator == "nhan") {
+                    return $operand1 . " * " . $operand2 . " = " . ($operand1 * $operand2);
+                } else {
+                    return $operand1 . " / " . $operand2 . " = " . ($operand1 / $operand2);
+                }
+            }
+        }
+        try {
+            echo "<h2>Result</h2>";
+            echo calculator($operand1, $operand2, $operator);
+        } catch (Exception $e) {
+            echo "Không hợp lệ";
+        }
+    }
+    ?>
+    <!DOCTYPE html>
+    <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=h, initial-scale=1.0">
-    <title>Document</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
 
-<body>
-    <form action="" method="post">
-        <h1>Simple Calculator</h1>
-        <h3>Calculator</h3>
-        <p>first peranf:</p>
-        <input type="text" placeholder="nhap so" name="first">
-        <p>first peranf:</p>
-        <select name="Operator" id="">
-            <option value="cong">+</option>
-            <option value="tru">-</option>
-            <option value="nhan">X</option>
-            <option value="chia">/</option>
-        </select>
-        <p>first peranf:</p>
-        <input type="text" placeholder="nhap so" name="last">
-        <input type="submit" id="submit" value="Calculate">
-    </form>
-</body>
-<?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $Number1 = $_POST["first"];
-    $Number2 = $_POST["last"];
-    $oPerator = $_POST["Operator"];
-}
-if ($Number1 == 0 || $Number2 == 0) {
-    throw new Exception("Divison by zero");
-}
-if ($oPerator == "cong") {
-    echo $Number1 + $Number2;
-} else if ($oPerator == "tru") {
-    echo $Number1 - $Number2;
-} elseif ($oPerator == "nhan") {
-    echo $Number1 * $Number2;
-} elseif ($oPerator == "chia") {
-    echo  $Number1 / $Number2;
-}
-?>
+    <body>
+        <div class="calculator">
+            <form action="" method="post">
+                <h2>Simple Calculator</h2>
+                <fieldset>
+                    <legend>Calculator</legend>
+                    <label for="">First operand : </label><input type="text" name="operand1"><br><br>
+                    <label for="">Operator :</label>
+                    <select name="operator" id="">
+                        <option value="cong">Cộng</option>
+                        <option value="tru">Trừ</option>
+                        <option value="nhan">Nhân</option>
+                        <option value="chia">Chia</option>
+                    </select><br><br>
+                    <label for="">Second operand</label><input type="text" name="operand2"><br><br>
+                    <input type="submit" value="Calculator">
+                </fieldset>
+            </form>
+        </div>
+    </body>
 
-</html>
+    </html>
