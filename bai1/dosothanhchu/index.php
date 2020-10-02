@@ -5,23 +5,23 @@ if ($_SERVER["REQUEST_METHOD" == "POST"]) {
         switch ($number) {
 
             case "1":
-                return "ten";
+                return "once";
             case "2":
-                return "twenty";
+                return "two";
             case "3":
-                return "thirty";
+                return "three";
             case "4":
-                return "forty";
+                return "for";
             case "5":
-                return "fifty";
+                return "five";
             case "6":
-                return "sixty";
+                return "six";
             case "7":
-                return "seventy";
+                return "sevent";
             case "8":
-                return "eighty";
+                return "eight";
             case "9":
-                return "ninety";
+                return "nine";
         }
     }
 }
