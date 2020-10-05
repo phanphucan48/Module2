@@ -54,7 +54,7 @@ function read_number($number)
             case ($number >= 100):
                 $hundred = floor($number / 100);
                 $remain = ($number % 100);
-                $ten = (floor($number / 10)) * 10;
+                $ten = (floor($remain / 10)) * 10;
                 $string = $dictionary[$ten];
                 $one = $number % 10;
                 $string = $dictionary[$hundred] . "" . $dictionary[100] . "";
