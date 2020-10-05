@@ -1,33 +1,5 @@
-    </html> -->
-    <?php
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $operand1 = $_POST["operand1"];
-        $operand2 = $_POST["operand2"];
-        $operator = $_POST["operator"];
-        function calculator($operand1, $operand2, $operator)
-        {
-            if ($operand1 == "0" || $operand2 == "0") {
-                throw new Exception("Division by zero");
-            } else {
-                if ($operator == "cong") {
-                    return $operand1 . " + " . $operand2 . " = " . ($operand1 + $operand2);
-                } else if ($operator == "tru") {
-                    return $operand1 . " - " . $operand2 . " = " . ($operand1 - $operand2);
-                } else if ($operator == "nhan") {
-                    return $operand1 . " * " . $operand2 . " = " . ($operand1 * $operand2);
-                } else {
-                    return $operand1 . " / " . $operand2 . " = " . ($operand1 / $operand2);
-                }
-            }
-        }
-        try {
-            echo "<h2>Result</h2>";
-            echo calculator($operand1, $operand2, $operator);
-        } catch (Exception $e) {
-            echo "Không hợp lệ";
-        }
-    }
-    ?>
+    </html>
+
     <!DOCTYPE html>
     <html lang="en">
 
@@ -55,6 +27,43 @@
                     <input type="submit" value="Calculator">
                 </fieldset>
             </form>
+            <h1>Result:</h1>
+            <?php
+            class Calculator
+            {
+                function calculate($first, $second, $operator)
+                {
+                    if ($operator == "chia" && $second == 0) {
+                        throw new Exception("Devided by zero!");
+                    } else {
+                        if ($operator == "cong") {
+                            echo $first . " + " . $second . " = " . ($first + $second);
+                        }
+                        if ($operator == "tru") {
+                            echo $first . " - " . $second . " = " . ($first - $second);
+                        }
+                        if ($operator == "nhan") {
+                            echo $first . " x " . $second . " = " . ($first * $second);
+                        }
+                        if ($operator == "chia") {
+                            echo $first . " / " . $second . " = " . ($first / $second);
+                        }
+                    }
+                }
+            }
+            if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                $first = $_POST["operand1"];
+                $second = $_POST["operand2"];
+                $operator = $_POST["operator"];
+                try {
+                    $mayTinh = new Calculator;
+                    $mayTinh->calculate($first, $second, $operator);
+                } catch (Exception $e) {
+                    echo "Message:" . $e->getMessage();
+                }
+            }
+
+            ?>
         </div>
     </body>
 
