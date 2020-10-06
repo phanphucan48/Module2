@@ -2,9 +2,9 @@
 $arr = array(10, 3, 4, 5, 6, 7);
 
 
-class findMin
+class Min
 {
-    function min($arr)
+    function findMin($arr)
 
     {
         $Min = $arr[0];
@@ -20,6 +20,6 @@ class findMin
     }
 }
 
-$indexArr = new findMin;
+$indexArr = new Min;
 
-echo "gia tri nho nhat tai vi tri" .  $indexArr->min($arr);
+echo "gia tri nho nhat tai vi tri" .  $indexArr->findMin($arr);
