@@ -1,0 +1,156 @@
+body,
+html {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar {
+  width: 100%;
+  background-color: rgb(120, 216, 81);
+  overflow: auto;
+}
+
+.navbar a {
+  float: right;
+  padding: 12px;
+  color: white;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.navbar a:hover {
+  background-color: rgb(7, 117, 3);
+}
+
+.active {
+  background-color: #4caf50;
+}
+
+@media screen and (max-width: 500px) {
+  .navbar a {
+    float: none;
+    display: block;
+  }
+}
+
+.hero-image {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("images/thitbo.jpg");
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.hero-text {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+.hero-text h1 {
+  font-size: 50px;
+  font-weight: bold;
+  color: greenyellow;
+  text-shadow: -12px 6px 7px black;
+}
+.hero-text p {
+  font-size: 266%;
+  color: #41c527;
+  font-weight: blod;
+  font-weight: bold;
+  text-shadow: -15px 4px 4px #072807;
+}
+
+.buton {
+  padding: 15px 25px;
+  font-size: 24px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  background-color: #4caf50;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+  text-decoration: none;
+}
+
+.button:hover {
+  background-color: #035005;
+}
+.button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+.products {
+  display: flex;
+  flex-wrap: wrap;
+}
+.anh {
+  border-radius: 11px;
+  box-shadow: -3px 20px 9px 7px #b1dd7e;
+  overflow: hidden;
+}
+.anh img {
+  width: 400px;
+  height: 400px;
+}
+.anh img:hover {
+  transform: scale(1.2);
+  cursor: pointer;
+}
+.sanpham {
+  margin: auto;
+}
+.id {
+  text-align: center;
+  font-size: 150%;
+  background-color: green;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.name {
+  text-align: center;
+  font-size: 150%;
+  background-color: rgb(99, 219, 99);
+  border-radius: 10px;
+  cursor: pointer;
+}
+.cost {
+  text-align: center;
+  font-size: 150%;
+  background-color: rgb(171, 228, 171);
+  border-radius: 10px;
+  cursor: pointer;
+}
+.buy {
+  text-align: center;
+}
+.buy a {
+  text-decoration: none;
+  text-align: center;
+  border-radius: 10px;
+  font-size: 350%;
+  font-weight: bold;
+  background-color: chartreuse;
+  box-shadow: -15px 10px 16px 0px #194f03;
+}
+.buy button:hover {
+  background-color: #1eb91e;
+  cursor: pointer;
+}
+.fooder {
+  justify-content: space-around;
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  margin: auto;
+  /* padding: initial; */
+  background-color: #4caf50;
+}

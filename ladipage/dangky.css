@@ -1,0 +1,217 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap");
+:root {
+  --color-bg-container: hsl(128, 100%, 74%);
+  --color-bg-button-footer: hsl(154, 59%, 51%);
+  --color-bg-button: hsl(248, 32%, 49%);
+  --color-bg-box: hsl(249, 10%, 26%);
+  --color-span: hsl(246, 25%, 77%);
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Open Sans", serif;
+}
+body {
+  height: 100vh;
+  width: 100vw;
+}
+
+.container {
+  display: flex;
+  background-image: url("/images/background-1.jpg");
+  background-color: var(--color-bg-container);
+  min-width: 520px;
+  max-width: 1440px;
+}
+.content_right {
+  flex: 50%;
+}
+
+.content_left {
+  padding: 350px 0 0 0px;
+  flex: 50%;
+  color: white;
+}
+
+.content_left_h1 h1 {
+  font-size: 334%;
+  text-align: center;
+  text-shadow: -9px 4px 7px black;
+  color: green;
+}
+.content_left_p p {
+  font-size: 108%;
+  padding: 30px 0px 30px 125px;
+  text-shadow: -9px 4px 7px black;
+  color: green;
+}
+.content_right_content {
+  margin: 150px 0 150px 0px;
+}
+.right_button button {
+  cursor: pointer;
+  height: 60px;
+  width: 500px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: bold;
+  background-color: var(--color-bg-button);
+  color: white;
+  box-shadow: var(--color-bg-box) 0 5px 10px;
+}
+.right_input_all {
+  background-color: white;
+  height: 500px;
+  width: 500px;
+  border-radius: 10px;
+  margin: 25px 0 0 0;
+  padding: 32px 0 0 0px;
+  box-shadow: var(--color-bg-box) 0 5px 10px;
+}
+.right_input input {
+  height: 50px;
+  width: 370px;
+  border-radius: 5px;
+  margin: 10px 0px 20px 60px;
+  border-color: var(--color-bg-container);
+}
+.right_button_footer button {
+  height: 50px;
+  width: 370px;
+  border-radius: 10px;
+  margin: 10px 0px 20px 60px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  border: none;
+  background-color: var(--color-bg-button-footer);
+  outline: none;
+}
+.right_button_footer button:hover {
+  background-color: rgb(89, 170, 89);
+  color: black;
+}
+
+.span_clicking {
+  font-size: 9px;
+  padding: 0px 0 0 110px;
+  color: var(--color-span);
+}
+.span_term {
+  font-size: 11px;
+  font-weight: bold;
+  color: var(--color-bg-container);
+}
+#firstName {
+  font-size: 16px;
+  font-weight: bold;
+  padding: 0px 0px 0px 20px;
+  color: rgb(105, 99, 99);
+}
+#error {
+  margin: -54px 0 0px 400px;
+  display: none;
+}
+
+#error_text {
+  margin: 10px 0 0 225px;
+  color: palevioletred;
+  display: none;
+}
+#lastName {
+  font-size: 16px;
+  font-weight: bold;
+  padding: 0px 0px 0px 20px;
+  color: rgb(105, 99, 99);
+}
+#error_lastName {
+  margin: -54px 0 0px 400px;
+  display: none;
+}
+
+#error_text_lastName {
+  margin: 10px 0 0 225px;
+  color: palevioletred;
+  display: none;
+}
+#email {
+  font-size: 16px;
+  font-weight: bold;
+  padding: 0px 0px 0px 20px;
+  color: rgb(105, 99, 99);
+}
+#error_email {
+  margin: -54px 0 0px 400px;
+  display: none;
+}
+
+#error_text_email {
+  margin: 10px 0 0 225px;
+  color: palevioletred;
+  display: none;
+}
+#password {
+  font-size: 16px;
+  font-weight: bold;
+  padding: 0px 0px 0px 20px;
+  color: rgb(105, 99, 99);
+}
+#error_password {
+  margin: -54px 0 0px 400px;
+  display: none;
+}
+
+#error_text_password {
+  margin: 10px 0 0 225px;
+  color: palevioletred;
+  display: none;
+}
+
+@media only screen and (max-width: 768px) {
+  .container {
+    display: block;
+  }
+  .content_right_content {
+    text-align: -webkit-center;
+    padding-bottom: 100px;
+  }
+  p {
+    padding: 0px !important;
+  }
+  .container {
+    background-color: red;
+  }
+}
+
+@media only screen and (max-width: 520px) {
+  .container {
+    display: block;
+  }
+  .content_right_content {
+    text-align: -webkit-center;
+    padding-bottom: 100px;
+  }
+  p {
+    padding: 0px !important;
+  }
+  .container {
+    background-color: green;
+  }
+}
+@media only screen and (max-width: 375px) {
+  .container {
+    display: block;
+  }
+  .content_right_content {
+    text-align: -webkit-center;
+    padding-bottom: 100px;
+  }
+  p {
+    padding: 0px !important;
+  }
+  .container {
+    background-color: pink;
+  }
+}
