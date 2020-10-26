@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,58 +25,62 @@
         $arr_data = json_decode($jsondata, true);
         return $arr_data;
     }
-    function saveDataJSON($filename, $sku, $alias, $image)
-    {
-        $customerlist = array(
-            "1" => array(
-                "id" => 1,
-                "sku" => "NOKA01",
-                "alias" => "noka",
-                "image" => "",
-                "brand_id" => 4,
-                "vendor_id" > 3,
-                "price" => 7050,
-                "cost" => 6650,
-                "stock" => 98992,
-                "sold" > 10,
-                "type" => 2,
-                "kind" => 0,
-                "virtual" => 0,
-                "status" => 1,
-                "sort" => 0,
-                "view" => 353,
-                "date_lastview" => "2020-06-09 16:05:34",
-                "date_available" => null,
-                "created_at" => null,
-                "updated_at" => "2020-06-09 16:05:34"
-
-            )
-        );
-        $arr_data = loadRegistrations($filename);
-        array_push($arr_data, $customerlist);
-        $jsondata = json_encode($arr_data, JSON_PRETTY_PRINT);
-        echo "Lưu dữ liệu thành công!";
-    }
-    $sku = NULL;
-    $alias = NULL;
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $sku = $_POST["sku"];
-        $alias = $_POST["alias"];
-        $image = $_POST["image"];
-    }
-
-
     ?>
     <?php
     $registrations = loadRegistrations('product.json');
     ?>
 
-    <div class="navbar">
+    <div class="topnav">
 
-        <a href="#"><i class="fa fa-fw fa-search"></i> Tìm kiếm </a>
-        <a href="#"><i class="fa fa-fw fa-envelope"></i> Dich vụ</a>
-        <a href="#"><i class="fa fa-fw fa-user"></i> Hỗ Trợ</a>
-        <a class="active" href="#"><i class="fa fa-fw fa-home"></i> Trang chủ</a>
+        <a href="#about">Dịch vụ</a>
+        <a href="#contact">Hỗ Trợ </a>
+        <a class="active" href="#home">Trang Chủ</a>
+        <div class="search-container">
+            <form action="" method="post">
+                <input type="text" placeholder="Search.." name="search">
+                <button type="submit"><i class="fa fa-search"></i></button>
+            </form>
+        </div>
+        <div class="giohang">
+            <i class="header__car-icon fas fa-cart-plus"></i>
+            <span> <?php if (isset($_SESSION["cart"])) {
+                        echo count($_SESSION["cart"]);
+                    } else {
+                        echo "0";
+                    };  ?></span>
+        </div>
+        <?php
+        $resut = [];
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $search = $_POST["search"];
+            $registrations = loadRegistrations('product.json');
+
+            foreach ($registrations  as $registrations) {
+                if ($registrations['sku'] == $search) {
+                    array_push($resut, $registrations);
+                }
+            }
+        }
+        ?>
+        <div class="products">
+            <?php foreach ($resut as $registrations) : ?>
+
+                <div class="sanpham">
+                    <div class="anh">
+                        <img src="<?= $registrations['image']; ?>">
+                    </div>
+                    <div class="id">ID : <?= $registrations['id']; ?></div>
+                    <div class="id">Tên Sản Phẩm : <?= $registrations['sku']; ?></div>
+                    <div class="name">Giá : <?= $registrations['price']; ?></div>
+                    <div class="cost">Lượt Xem:<?= $registrations['view'] ?></div>
+                    <form action="" method="get">
+                        <div class="buy"><a href="thanhtoan.html">Mua</a> </div>
+                    </form>
+                </div>
+            <?php endforeach; ?>
+
+        </div>
+
     </div>
     <div class="hero-image">
         <div class="hero-text">
@@ -92,16 +99,25 @@
 
     <div class="products">
         <?php foreach ($arrViewMax as $registrations) : ?>
+            <form action="cart.php" method="post">
+                <input type="text" name="id" value="<?= $registrations['id']; ?>" hidden>
+                <input type="text" name="price" value="<?= $registrations['price']; ?>" hidden>
+                <input type="text" name="name" value="<?= $registrations['sku']; ?>" hidden>
+                <input type="text" name="image" value="<?= $registrations['image']; ?>" hidden>
+                <div class="sanpham">
+                    <div class="anh">
+                        <img src="<?= $registrations['image']; ?>">
+                    </div>
+                    <div class="id">ID : <?= $registrations['id']; ?></div>
+                    <div class="name">Tên Sản Phẩm : <?= $registrations['sku']; ?></div>
+                    <div class="cost">Giá : <?= $registrations['price']; ?></div>
+                    <div class="cost">Lượt Xem:<?= $registrations['view'] ?></div>
 
-            <div class="sanpham">
-                <div class="anh">
-                    <img src="<?= $registrations['image']; ?>">
                 </div>
-                <div class="id">Tên Sản Phẩm : <?= $registrations['sku']; ?></div>
-                <div class="name">Giá : <?= $registrations['price']; ?></div>
-                <div class="cost">Lượt Xem:<?= $registrations['view'] ?></div>
-                <div class="buy"><a href="thanhtoan.html">Mua</a> </div>
-            </div>
+
+                <button type="submit" class="buy">Thêm Vào</button>
+            </form>
+
         <?php endforeach; ?>
 
     </div>
@@ -139,7 +155,6 @@
 
     </div>
     <div>
-
 
 </body>
 
