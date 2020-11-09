@@ -22,7 +22,7 @@
                 $count += 1;
             }
         }
-        return $count;
+        return $count; 
     }
 
     if (isset($_POST["name"])) {

@@ -48,7 +48,9 @@ session_start();
                     } else {
                         echo "0";
                     };  ?></span>
+
         </div>
+
         <?php
         $resut = [];
         if ($_SERVER["REQUEST_METHOD"] == "POST") {

@@ -132,6 +132,7 @@ html {
   border-radius: 11px;
   box-shadow: -3px 20px 9px 7px #b1dd7e;
   overflow: hidden;
+  margin: 0 22px;
 }
 .anh img {
   width: 400px;
